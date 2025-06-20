@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <script>
+                // age
+                var age = Number(prompt("Enter your age"));
+                if(age >= 5 && age <= 80){
+                        if(age >= 5 && age <= 16){
+                                alert("You is Block A");
+                        }
+                        else if(age >= 17 && age <= 40){
+                                alert("Yours BLock is B");
+                        }
+                        else if(age >= 41 && age <= 60){
+                                alert("Yours BLock is C");
+                        }
+                        else{
+                                alert("Yours BLock is D");
+                        }
+                }
+                else{
+                        document.write("Invalid age " + age);
+                }
+        </script>
+</body>
+</html>

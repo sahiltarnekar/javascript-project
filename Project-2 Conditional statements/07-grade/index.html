@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+<body>
+        <script>
+                // nested if else
+                var marks = Number(prompt("Enter your marks"));
+                if(marks >= 0 && marks <= 100){
+                        if(marks >= 90){
+                                document.write("A+");
+                        }
+                        else if(marks >= 80){
+                                document.write("A");
+                        }
+                        else if(marks >= 70){
+                                document.write("B+");
+                        }
+                        else if(marks >= 60){
+                                document.write("B");
+                        }
+                        else if(marks >= 50){
+                                document.write("C");
+                        }
+                        else{
+                                document.write("Fail better luck next time");
+                        }
+                }
+                else{
+                        document.write("Invalid marks");
+                }
+        </script>
+</body>
+</html>
