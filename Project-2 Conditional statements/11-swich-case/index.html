@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Switch case</title>
+</head>
+
+<body>
+        <script>
+                var lang = Number(
+                        prompt("press 1 for english \npress 2 for hindi \npress 3 for gujrati"));
+                switch (lang) {
+                        case 1:
+                                var recharge = Number(
+                                        prompt(
+                                                "press 1 for Internet Recharge \npress 2 for Top-up Recharge \npress 3 for Special Recharge"
+                                        ));
+                                switch (recharge) {
+                                        case 1:
+                                                alert("Internet Recharge was done");
+                                                break;
+                                        case 2:
+                                                alert("Top-up Recharge was done");
+                                                break;
+                                        case 3:
+                                                alert("Special Recharge was done");
+                                                break;
+                                        default:
+                                                alert("wrong option");
+                                }
+                                break;
+
+                        case 2:
+                                var recharge = Number(prompt("Internet Recharge ke liye 1 dabaiye \nTop-up ke liye 2 dabaiye \nSpecial Recharge ke liye 3 dabaiye"));
+                                switch (recharge) {
+                                        case 1:
+                                                alert("Apne safltapurvak Internet Recharge kar liya hai");
+                                                break;
+                                        case 2:
+                                                alert("Apne safltapurvak Top-up kar liya hai");
+                                                break;
+                                        case 3:
+                                                alert("Apne safltapurvak Spcial Recharge kar liya hai");
+                                                break;
+                                        default:
+                                                alert("Galat option");
+                                }
+                                break;
+
+                        case 3:
+                                var recharge = Number(prompt("Internet Recharge mate 1 dabavo \nTop-up  mate 2 dabavo \nSpecial Recharge  mate 3 dabavo"));
+                                switch (recharge) {
+                                        case 1:
+                                                alert("Tame safdtapurvak Internet Recharge kariu chhe");
+                                                break;
+                                        case 2:
+                                                alert("Tame safdtapurvak Top-up kariu chhe");
+                                                break;
+                                        case 3:
+                                                alert("Tame safdtapurvak Special Recharge kariu chhe");
+                                                break;
+                                        default:
+                                                alert(" Amanye Option");
+                                }
+                                break;
+                        default:
+                                alert("Wrong Language Option");
+                }
+
+        </script>
+</body>
+
+</html>
