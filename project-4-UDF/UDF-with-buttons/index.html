@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Defined Function with Buttons</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body class="bg-dark ">
+
+    <form action="" class="col-6 shadow-lg mx-auto mt-5 py-4 px-5 shadow">
+        <div>
+            <input type="text" id="value1" placeholder="enter a value" class="form-control ">
+        </div>
+        <div class="mt-4">
+            <input type="text" id="value2" placeholder="enter a value" class="form-control">
+        </div>
+        <div class="mt-4">
+
+            <p id="output" class="text-light badge bg-primary py-2 px-4 fs-6 text-uppercase"></p>
+        </div>
+
+        <div class="mt-4 d-flex justify-content-around">
+            <button type="button" onclick="calc(1)" class="btn text-light bg-primary">Addition +</button>
+            <button type="button" onclick="calc(2)" class="btn text-light  bg-primary "> Subtraction -</button>
+            <button type="button" onclick="calc(3)" class="btn text-light  bg-primary "> Divide /</button>
+            <button type="button" onclick="calc(4)" class="btn text-light  bg-primary "> Multiple x</button>
+        </div>
+    </form>
+    <script>
+        function calc(choice) {
+            let value1 = Number(document.getElementById('value1').value)
+            let value2 = Number(document.getElementById('value2').value)
+            var op, result
+            switch (choice) {
+                case 1:
+                    result = value1 + value2
+
+                    op = "Addition"
+                    break;
+
+                case 2:
+                    result = value1 - value2
+                    op = "subtraction"
+                    break;
+
+                case 3:
+                    result = value1 / value2
+                    op = "Divide"
+                    break;
+                case 4:
+                    result = value1 * value2
+                    op = "multiplication"
+                    break;
+
+                default:
+                    alert("invalid number")
+
+
+            }
+
+            const output = `${op} of ${value1} and ${value2} is = ${result}`
+            document.getElementById("output").innerHTML = output
+        }
+    </script>
+</body>
+
+</html>
