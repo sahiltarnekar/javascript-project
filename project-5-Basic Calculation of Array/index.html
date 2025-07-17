@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <title>Basic Calculation of Array</title>
+  </head>
+
+  <body class="">
+    <form action="" class="m-5 shadow mx-auto col-6">
+      <h3 class="text-center p-4">Basic Calculation of Array</h3>
+      <input
+        type="number"
+        id="num"
+        class="form-control"
+        placeholder="Enter The Value for array"
+      />
+      <button
+        class="btn btn-danger my-3 p-2"
+        type="button"
+        onclick="calculate()"
+      >
+        Calculate
+      </button>
+      <p id="array">Array :</p>
+      <hr />
+      <p id="count">Count :</p>
+      <hr />
+      <p id="sum">Sum :</p>
+      <hr />
+      <p id="avg">Average :</p>
+      <hr />
+      <p id="min">Min :</p>
+      <hr />
+      <p id="max">Max :</p>
+    </form>
+  </body>
+
+  <script>
+    var arr = [];
+
+    function calculate() {
+      var value = document.getElementById("num").value;
+      value = Number(value);
+
+      if (!isNaN(value)) {
+        arr.push(value);
+
+        var sum = 0;
+        var min = arr[0];
+        var max = arr[0];
+
+        for (var i = 0; i < arr.length; i++) {
+          sum += arr[i];
+          if (arr[i] < min) min = arr[i];
+          if (arr[i] > max) max = arr[i];
+        }
+
+        var avg = sum / arr.length;
+
+        document.getElementById("array").innerHTML =
+          "Array:- " + arr.join(", ");
+        document.getElementById("count").innerHTML = "Count:- " + arr.length;
+        document.getElementById("sum").innerHTML = "Sum:- " + sum;
+        document.getElementById("avg").innerHTML =
+          "Average:- " + avg.toFixed(2);
+        document.getElementById("min").innerHTML = "Min:- " + min;
+        document.getElementById("max").innerHTML = "Max:- " + max;
+        document.getElementById("num").value = "";
+      }
+    }
+  </script>
+</html>
