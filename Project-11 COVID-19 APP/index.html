@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>COVID-19 Statistics App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>COVID-19 Statistics</h1>
+  
+  <select id="countrySelect"></select>
+  <button onclick="getStats()">Get Stats</button>
+
+  <div id="stats" class="card" style="display:none;">
+    <h2 id="countryName"></h2>
+    <p class="stat">Cases: <span id="cases"></span></p>
+    <p class="stat ">Deaths: <span id="deaths"></span></p>
+    <p class="stat">Recovered: <span id="recovered"></span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
