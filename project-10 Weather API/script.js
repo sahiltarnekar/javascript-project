@@ -1,45 +1,30 @@
- const options = {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key': '7432748f4dmshae1a34f452c0042p1e4193jsn97c24c9c94e4',
-        'x-rapidapi-host': 'yahoo-weather5.p.rapidapi.com'
-      }
-    };
+    const apiKey = "743281fc3056421588642333253008"; 
 
-    function getWeather() {
-      const city = document.getElementById('city').value;
-      const result = document.getElementById('result');
-
+    async function getWeather() {
+      const city = document.getElementById("cityInput").value;
       if (!city) {
-        result.innerHTML = '<p class="text-danger">⚠️ Please enter a city name.</p>';
+        alert("Please enter a city name");
         return;
       }
 
-      fetch(`https://yahoo-weather5.p.rapidapi.com/weather?location=${city}&format=json&u=c`, options)
-        .then(response => {
-          if (!response.ok) throw new Error('City not found');
-          return response.json();
-        })
-        .then(data => {
-          const location = data.location.city + ', ' + data.location.country;
-          const condition = data.current_observation.condition;
-          const temp = condition.temperature;
-          const text = condition.text;
+      const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
 
-          let icon = "☁️";
-          if (text.toLowerCase().includes("sun")) icon = "☀️";
-          if (text.toLowerCase().includes("rain")) icon = "🌧️";
-          if (text.toLowerCase().includes("snow")) icon = "❄️";
-          if (text.toLowerCase().includes("cloud")) icon = "☁️";
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
 
-          result.innerHTML = `
-            <h4>${location}</h4>
-            <div class="weather-icon">${icon}</div>
-            <p><strong>${temp}°C</strong></p>
-            <p>${text}</p>
-          `;
-        })
-        .catch(error => {
-          result.innerHTML = `<p class="text-danger">❌ Error: ${error.message}</p>`;
-        });
+        if (data.error) {
+          document.getElementById("weather").innerHTML = `<p>❌ City not found</p>`;
+          return;
+        }
+
+        document.getElementById("weather").innerHTML = `
+          <h3>${data.location.name}, ${data.location.country}</h3>
+          <p>🌡 Temperature: ${data.current.temp_c} °C</p>
+          <p>☁ Condition: ${data.current.condition.text}</p>
+          <img src="https:${data.current.condition.icon}" alt="weather icon">
+        `;
+      } catch (error) {
+        document.getElementById("weather").innerHTML = `<p>⚠ Error fetching data</p>`;
+      }
     }
